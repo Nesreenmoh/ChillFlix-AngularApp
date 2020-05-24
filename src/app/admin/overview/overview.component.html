@@ -1,0 +1,32 @@
+<app-sidebar></app-sidebar>
+<div class="container mt-3 text-white bg-dark justify-content-center text-center">
+  <div class="table-container pt-3 pb-2">
+    <h3>Videos Overview</h3>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Description</td>
+          <td>Type</td>
+          <td>Update</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody id="users-list">
+        <tr *ngFor="let video of videos" [attr.id]="video.id">
+          <td>{{ video.title }}</td>
+          <td>{{ video.description }}</td>
+          <td>{{ video.type }}</td>
+          <td>
+            <a href="#" [routerLink]="['../overview/edit/', video.id]"
+              ><img src="../../assets/img/edit.png" width="20px" height="20px"
+            /></a>
+          </td>
+          <td>
+            <a href="#" (click)="deleteVideo(video.id)"><img src="../../assets/img/delete-xxl.png" width="20px" height="20px" /></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

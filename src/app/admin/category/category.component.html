@@ -1,0 +1,41 @@
+<app-sidebar></app-sidebar>
+<div class="container pt-3 text-white bg-dark mt-4 text-center">
+  <form>
+    <div class="row justify-content-center align-items-center">
+      <div class="form-inline pt-2 pb-2">
+        <label for="" class="h5 pr-4"> Category Name </label>
+        <input type="text" name="name" [(ngModel)]="categoryName" class="form-control" placeholder="Category Name" />
+      </div>
+    </div>
+    <div class="pt-3">
+      <button type="button" (click)="addCategory()" class="btn btn-dark btn-lg mb-2">Add Category</button>
+      <button type="button" [routerLink]="['/admin']" class="btn btn-dark btn-lg mb-2">Cancel</button>
+    </div>
+  </form>
+  <div class="table-container pt-3 pb-2">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <td>ID</td>
+          <td>Name</td>
+          <td>Update</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody id="Category-list">
+        <tr *ngFor="let category of categories" [attr.id]="category.id">
+          <td>{{ category.id }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            <a href="#" [routerLink]="['/category/edit/', category.id]"
+              ><img src="../../assets/img/edit.png" width="20px" height="20px"
+            /></a>
+          </td>
+          <td>
+            <a href="#" (click)="deleteCategory(category.id)"><img src="../../assets/img/delete-xxl.png" width="20px" height="20px" /></a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

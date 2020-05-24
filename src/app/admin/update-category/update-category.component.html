@@ -1,0 +1,17 @@
+<app-sidebar></app-sidebar>
+<div class="container pt-3 text-white bg-dark mt-4 text-center">
+  <p class="h4">Update Category Number {{ categoryId }}</p>
+  <br />
+  <form>
+    <div class="row justify-content-center align-items-center">
+      <div class="form-inline pt-2 pb-2">
+        <label for="" class="h5 pr-4"> Category Name </label>
+        <input type="text" name="name" [(ngModel)]="categoryName" class="form-control" placeholder="Category Name" />
+      </div>
+    </div>
+    <div class="pt-3">
+      <button type="button" (click)="updateCategory()" class="btn btn-dark btn-lg mb-2">Update Category</button>
+      <button type="button" [routerLink]="['../../../category']" class="btn btn-dark btn-lg mb-2">Cancel</button>
+    </div>
+  </form>
+</div>

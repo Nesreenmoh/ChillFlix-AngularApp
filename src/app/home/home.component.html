@@ -1,0 +1,8 @@
+<div class="container-fluid">
+  <div>
+    <app-home-showcase></app-home-showcase>
+  </div>
+  <div class="pl-3">
+    <app-home-category *ngFor="let category of categories" [myCategory]="category"> </app-home-category>
+  </div>
+</div>

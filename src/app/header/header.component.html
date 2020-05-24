@@ -1,0 +1,64 @@
+<div class="container">
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark primary-color fixed-top">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#"><img src="../../assets/img/chilli.png" width="80" height="80" alt="" /></a>
+
+    <!-- Collapse button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-toggle="collapse"
+      data-target="#basicExampleNav"
+      aria-controls="basicExampleNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="basicExampleNav">
+      <!-- Links -->
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active h5">
+          <a class="nav-link" href="#" (click)="showSearch = false" [routerLink]="['../home']"
+            >Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item h5">
+          <a class="nav-link" href="#" #menuValue1 (click)="sendMenuItem(menuValue1.textContent)">Movies</a>
+        </li>
+        <li class="nav-item h5">
+          <a class="nav-link" href="#" #menuValue2 (click)="sendMenuItem(menuValue2.textContent)">TV Shows</a>
+        </li>
+      </ul>
+      <form class="form-inline">
+        <div *ngIf="showSearch" class="md-form my-0">
+          <input
+            class="form-control mr-sm-2"
+            type="text"
+            name="searchTerm"
+            [(ngModel)]="searchTerm"
+            placeholder="Search Text "
+            aria-label="Search"
+          />
+        </div>
+        <div *ngIf="isSignedIn === false">
+          <div class="md-form my-0">
+            <button type="button" [routerLink]="['../login']" class="btn btn-danger btn-lg my-2 my-sm-0 pt-2">Sign in</button>
+          </div>
+        </div>
+      </form>
+      <!-- Links -->
+    </div>
+    <div *ngIf="isSignedIn">
+      <button (click)="signout()" [routerLink]="['../home']" class="btn btn-danger btn-lg my-2 my-sm-0 pt-2" type="button">
+        Sign out
+      </button>
+    </div>
+    <!-- Collapsible content -->
+  </nav>
+  <!--/.Navbar-->
+</div>
